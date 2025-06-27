@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import HeaderGeral from "@/components/HeaderGeral";
-
+import Footer from "@/components/Footer";
 export default function ContatoPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -187,6 +187,7 @@ export default function ContatoPage() {
           </form>
         </div>
       </main>
+      <Footer/>
     </>
   );
 }

@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Hero from "@/components/Hero";
+import Footer from "@/components/Footer";
 import ValuesSection from "@/components/ValuesSection";
 import ServicesSection from "@/components/ServicesSection";
 import AboutSection from "@/components/AboutSection";
@@ -13,6 +13,7 @@ export default function Home() {
       <ServicesSection />
       <InstitutionalMessageSection />
       <ValuesSection />
+      <Footer />
     </main>
   );
 }
