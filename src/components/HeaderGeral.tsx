@@ -42,10 +42,7 @@ export default function HeaderGeral() {
         {/* Dropdown Políticas */}
         <div className="relative">
           <button
-            onClick={() => {
-              setShowPolicies(!showPolicies);
-              setShowLanguages(false);
-            }}
+            onClick={() => setShowPolicies(!showPolicies)}
             className="flex items-center gap-1 hover:text-white/80 transition-colors"
           >
             POLÍTICAS ▼
@@ -53,13 +50,44 @@ export default function HeaderGeral() {
           {showPolicies && (
             <ul className="absolute right-0 mt-2 w-40 bg-white text-black rounded shadow-lg border border-blue-200 z-50">
               <li className="px-4 py-2 hover:bg-blue-50 cursor-pointer">
-                Privacidade
+                <Link
+                  href="/site/politica/privacidade"
+                  onClick={() => setShowPolicies(false)}
+                >
+                  Privacidade
+                </Link>
               </li>
               <li className="px-4 py-2 hover:bg-blue-50 cursor-pointer">
-                Termos de Uso
+                <Link
+                  href="/politica/termos"
+                  onClick={() => setShowPolicies(false)}
+                >
+                  Termos de Uso
+                </Link>
               </li>
               <li className="px-4 py-2 hover:bg-blue-50 cursor-pointer">
-                Cookies
+                <Link
+                  href="/politica/cookies"
+                  onClick={() => setShowPolicies(false)}
+                >
+                  Cookies
+                </Link>
+              </li>
+              <li className="px-4 py-2 hover:bg-blue-50 cursor-pointer">
+                <Link
+                  href="/politica/esg"
+                  onClick={() => setShowPolicies(false)}
+                >
+                  ESG
+                </Link>
+              </li>
+              <li className="px-4 py-2 hover:bg-blue-50 cursor-pointer">
+                <Link
+                  href="site/politica/uso-de-dados"
+                  onClick={() => setShowPolicies(false)}
+                >
+                  Uso de Dados
+                </Link>
               </li>
             </ul>
           )}

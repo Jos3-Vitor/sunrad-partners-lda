@@ -88,6 +88,14 @@ export default function HeroSection() {
                     ESG
                   </Link>
                 </li>
+                <li className="px-4 py-2 hover:bg-blue-50 cursor-pointer">
+                  <Link
+                    href="site/politica/uso-de-dados"
+                    onClick={() => setShowPolicies(false)}
+                  >
+                    Uso de Dados
+                  </Link>
+                </li>
               </ul>
             )}
           </div>
