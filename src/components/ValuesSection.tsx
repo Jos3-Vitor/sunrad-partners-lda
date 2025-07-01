@@ -1,13 +1,20 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import Image from 'next/image'
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
+import { motion } from "framer-motion";
+import Image from "next/image";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
 
 const cards = [
   {
     title: "Trade Finance Global",
-    description: "Estruturação e execução de operações internacionais com segurança e agilidade.",
+    description:
+      "Estruturação e execução de operações internacionais com segurança e agilidade.",
     image: "/images/trade-card.jpg",
   },
   {
@@ -17,10 +24,11 @@ const cards = [
   },
   {
     title: "Ativos Digitais Regulados",
-    description: "Integração e validação de ativos digitais em compliance com as exigências globais.",
+    description:
+      "Integração e validação de ativos digitais em compliance com as exigências globais.",
     image: "/images/ativos-card.jpg",
   },
-]
+];
 
 export default function ValuesSection() {
   return (
@@ -32,9 +40,12 @@ export default function ValuesSection() {
         viewport={{ once: true }}
         className="max-w-3xl mx-auto mb-12"
       >
-        <h2 className="text-3xl font-bold mb-4 text-blue-900">Nossos diferenciais estratégicos</h2>
+        <h2 className="text-3xl font-bold mb-4 text-blue-900">
+          Nossos diferenciais estratégicos
+        </h2>
         <p className="text-lg text-blue-700">
-          Soluções sob medida para decisões financeiras de alta complexidade, com visão global e atuação personalizada.
+          Soluções sob medida para decisões financeiras de alta complexidade,
+          com visão global e atuação personalizada.
         </p>
       </motion.div>
 
@@ -54,11 +65,13 @@ export default function ValuesSection() {
                     src={card.image}
                     alt={card.title}
                     fill
-                    style={{ objectFit: 'cover' }}
+                    style={{ objectFit: "cover" }}
                     priority
                   />
                 </div>
-                <CardTitle className="text-xl min-h-[3.5rem] text-center text-blue-900">{card.title}</CardTitle>
+                <CardTitle className="text-xl min-h-[3.5rem] text-center text-blue-900">
+                  {card.title}
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-blue-700 text-sm">
@@ -70,5 +83,5 @@ export default function ValuesSection() {
         ))}
       </div>
     </section>
-  )
+  );
 }

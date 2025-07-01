@@ -26,3 +26,7 @@ Use cores que derivem diretamente do logo:
 	•	Verde-azulado suave (#4FC3A1) – para planos de fundo claros ou menus.
 	•	Azul céu (#2196F3) – como cor principal de títulos ou botões importantes.
 	•	Azul profundo (#0D47A1) – para rodapés, cabeçalhos ou texto em destaque.
+
+
+
+	

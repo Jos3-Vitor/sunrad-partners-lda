@@ -2,14 +2,27 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { Menu, Transition } from "@headlessui/react";
+import { ChevronDown } from "lucide-react";
+import { Fragment } from "react";
 
 export default function HeaderGeral() {
-  const [showPolicies, setShowPolicies] = useState(false);
-  const [showLanguages, setShowLanguages] = useState(false);
+  const politicas = [
+    { label: "Privacidade", href: "/site/politica/privacidade" },
+    { label: "Termos de Uso", href: "/site/politica/termos" },
+    { label: "Cookies", href: "/site/politica/cookies" },
+    { label: "ESG", href: "/site/politica/esg" },
+    { label: "Uso de Dados", href: "/site/politica/uso-de-dados" },
+  ];
+
+  const idiomas = [
+    { label: "EN", icon: "🇺🇸" },
+    { label: "PT", icon: "🇧🇷" },
+    { label: "ES", icon: "🇪🇸" },
+  ];
 
   return (
-    <header className="w-full z-50 bg-gradient-to-r from-blue-900 to-blue-700 backdrop-blur-sm text-white px-8 py-4 flex justify-between items-center">
+    <header className="relative w-full z-50 bg-gradient-to-r from-blue-900 to-blue-700 backdrop-blur-sm text-white px-8 py-4 flex justify-between items-center">
       {/* Logo */}
       <div className="flex items-center cursor-pointer">
         <Image
@@ -40,84 +53,79 @@ export default function HeaderGeral() {
         </Link>
 
         {/* Dropdown Políticas */}
-        <div className="relative">
-          <button
-            onClick={() => setShowPolicies(!showPolicies)}
-            className="flex items-center gap-1 hover:text-white/80 transition-colors"
+        <Menu as="div" className="relative">
+          <Menu.Button className="flex items-center gap-1 hover:text-white/80 transition-colors">
+            POLÍTICAS <ChevronDown className="w-4 h-4" />
+          </Menu.Button>
+          <Transition
+            as={Fragment}
+            enter="transition ease-out duration-150"
+            enterFrom="opacity-0 scale-95"
+            enterTo="opacity-100 scale-100"
+            leave="transition ease-in duration-100"
+            leaveFrom="opacity-100 scale-100"
+            leaveTo="opacity-0 scale-95"
           >
-            POLÍTICAS ▼
-          </button>
-          {showPolicies && (
-            <ul className="absolute right-0 mt-2 w-40 bg-white text-black rounded shadow-lg border border-blue-200 z-50">
-              <li className="px-4 py-2 hover:bg-blue-50 cursor-pointer">
-                <Link
-                  href="/site/politica/privacidade"
-                  onClick={() => setShowPolicies(false)}
-                >
-                  Privacidade
-                </Link>
-              </li>
-              <li className="px-4 py-2 hover:bg-blue-50 cursor-pointer">
-                <Link
-                  href="/politica/termos"
-                  onClick={() => setShowPolicies(false)}
-                >
-                  Termos de Uso
-                </Link>
-              </li>
-              <li className="px-4 py-2 hover:bg-blue-50 cursor-pointer">
-                <Link
-                  href="/politica/cookies"
-                  onClick={() => setShowPolicies(false)}
-                >
-                  Cookies
-                </Link>
-              </li>
-              <li className="px-4 py-2 hover:bg-blue-50 cursor-pointer">
-                <Link
-                  href="/politica/esg"
-                  onClick={() => setShowPolicies(false)}
-                >
-                  ESG
-                </Link>
-              </li>
-              <li className="px-4 py-2 hover:bg-blue-50 cursor-pointer">
-                <Link
-                  href="site/politica/uso-de-dados"
-                  onClick={() => setShowPolicies(false)}
-                >
-                  Uso de Dados
-                </Link>
-              </li>
-            </ul>
-          )}
-        </div>
+            <Menu.Items className="absolute right-0 mt-2 w-44 bg-white text-black rounded shadow-lg border border-blue-200 z-50">
+              <div className="py-1">
+                {politicas.map(({ label, href }) => (
+                  <Menu.Item key={href}>
+                    {({ active }) => (
+                      <Link
+                        href={href}
+                        className={`block px-4 py-2 text-sm ${
+                          active ? "bg-blue-50 text-gray-900" : "text-gray-700"
+                        }`}
+                      >
+                        {label}
+                      </Link>
+                    )}
+                  </Menu.Item>
+                ))}
+              </div>
+            </Menu.Items>
+          </Transition>
+        </Menu>
 
         {/* Dropdown Idiomas */}
-        <div className="relative">
-          <button
-            onClick={() => {
-              setShowLanguages(!showLanguages);
-              setShowPolicies(false);
-            }}
-            className="flex items-center gap-1 hover:text-white/80 transition-colors"
+        <Menu as="div" className="relative">
+          <Menu.Button className="flex items-center gap-1 hover:text-white/80 transition-colors">
+            <span>🇧🇷</span> PT <ChevronDown className="w-4 h-4" />
+          </Menu.Button>
+          <Transition
+            as={Fragment}
+            enter="transition ease-out duration-150"
+            enterFrom="opacity-0 scale-95"
+            enterTo="opacity-100 scale-100"
+            leave="transition ease-in duration-100"
+            leaveFrom="opacity-100 scale-100"
+            leaveTo="opacity-0 scale-95"
           >
-            <span>🇧🇷</span> PT ▼
-          </button>
-          {showLanguages && (
-            <ul className="absolute right-0 mt-2 w-32 bg-white text-black rounded shadow-lg border border-blue-200 z-50">
-              <li className="px-4 py-2 hover:bg-blue-50 cursor-pointer flex items-center gap-2">
-                <span>🇺🇸</span> EN
-              </li>
-              <li className="px-4 py-2 hover:bg-blue-50 cursor-pointer flex items-center gap-2">
-                <span>🇧🇷</span> PT
-              </li>
-              <li className="px-4 py-2 hover:bg-blue-50 cursor-pointer flex items-center gap-2">
-                <span>🇪🇸</span> ES
-              </li>
-            </ul>
-          )}
-        </div>
+            <Menu.Items className="absolute right-0 mt-2 w-32 bg-white text-black rounded shadow-lg border border-blue-200 z-50">
+              <div className="py-1">
+                {idiomas.map(({ label, icon }) => (
+                  <Menu.Item key={label}>
+                    {({ active }) => (
+                      <Link
+                        href={`/${label.toLowerCase()}${
+                          typeof window !== "undefined"
+                            ? window.location.pathname.slice(3)
+                            : ""
+                        }`}
+                        className={`flex items-center gap-2 w-full px-4 py-2 text-sm text-left ${
+                          active ? "bg-blue-50 text-gray-900" : "text-gray-700"
+                        }`}
+                        locale={label.toLowerCase()}
+                      >
+                        <span>{icon}</span> {label}
+                      </Link>
+                    )}
+                  </Menu.Item>
+                ))}
+              </div>
+            </Menu.Items>
+          </Transition>
+        </Menu>
       </nav>
     </header>
   );

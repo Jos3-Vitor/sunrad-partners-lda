@@ -8,12 +8,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import Image from "next/image";
 
-import {
-  Globe,
-  TrendingUp,
-  ShieldCheck,
-  CheckCircle,
-} from "lucide-react";
+import { Globe, TrendingUp, ShieldCheck, CheckCircle } from "lucide-react";
 
 type Service = {
   title: string;
@@ -43,7 +38,9 @@ const categorizedServices: CategorizedService[] = [
       },
       {
         title: "Câmbio Corporativo",
-        icon: <TrendingUp className="text-sunrad-lime w-8 h-8" aria-hidden="true" />,
+        icon: (
+          <TrendingUp className="text-sunrad-lime w-8 h-8" aria-hidden="true" />
+        ),
         description:
           "Assessoria em câmbio comercial e financeiro, estratégias de hedge, contas internacionais e conformidade regulatória.",
         image: "/images/cambio-corporativo.jpg",
@@ -52,7 +49,12 @@ const categorizedServices: CategorizedService[] = [
       },
       {
         title: "Gestão Cambial Estratégica",
-        icon: <TrendingUp className="text-sunrad-yellow w-8 h-8" aria-hidden="true" />,
+        icon: (
+          <TrendingUp
+            className="text-sunrad-yellow w-8 h-8"
+            aria-hidden="true"
+          />
+        ),
         description:
           "Gestão ativa de exposição cambial com foco em proteção patrimonial e performance.",
         image: "/images/gestao-cambial.jpg",
@@ -66,7 +68,12 @@ const categorizedServices: CategorizedService[] = [
     services: [
       {
         title: "Ativos Digitais Regulados",
-        icon: <ShieldCheck className="text-sunrad-teal w-8 h-8" aria-hidden="true" />,
+        icon: (
+          <ShieldCheck
+            className="text-sunrad-teal w-8 h-8"
+            aria-hidden="true"
+          />
+        ),
         description:
           "Integração segura de ativos digitais: custódia, conversão, reporte e conformidade com foco em segurança institucional.",
         image: "/images/ativos-digitais.jpg",
@@ -75,7 +82,9 @@ const categorizedServices: CategorizedService[] = [
       },
       {
         title: "Tokenização de Ativos",
-        icon: <TrendingUp className="text-sunrad-lime w-8 h-8" aria-hidden="true" />,
+        icon: (
+          <TrendingUp className="text-sunrad-lime w-8 h-8" aria-hidden="true" />
+        ),
         description:
           "Transformação de ativos reais em tokens digitais para liquidez e rastreabilidade.",
         image: "/images/tokenizacao.jpg",
@@ -84,7 +93,9 @@ const categorizedServices: CategorizedService[] = [
       },
       {
         title: "Custódia Digital",
-        icon: <ShieldCheck className="text-sunrad-sky w-8 h-8" aria-hidden="true" />,
+        icon: (
+          <ShieldCheck className="text-sunrad-sky w-8 h-8" aria-hidden="true" />
+        ),
         description:
           "Soluções institucionais de armazenamento seguro para criptomoedas e ativos digitais.",
         image: "/images/custodia.jpg",
@@ -98,7 +109,12 @@ const categorizedServices: CategorizedService[] = [
     services: [
       {
         title: "Validação de Instrumentos Financeiros",
-        icon: <CheckCircle className="text-sunrad-yellow w-8 h-8" aria-hidden="true" />,
+        icon: (
+          <CheckCircle
+            className="text-sunrad-yellow w-8 h-8"
+            aria-hidden="true"
+          />
+        ),
         description:
           "Análise técnica e jurídica de SBLC, BG e MTN para colateralização em operações estruturadas.",
         image: "/images/validacao.jpg",
@@ -107,7 +123,9 @@ const categorizedServices: CategorizedService[] = [
       },
       {
         title: "Estruturação de Garantias Bancárias",
-        icon: <ShieldCheck className="text-sunrad-sky w-8 h-8" aria-hidden="true" />,
+        icon: (
+          <ShieldCheck className="text-sunrad-sky w-8 h-8" aria-hidden="true" />
+        ),
         description:
           "Modelagem de garantias para crédito e investimentos com bancos internacionais de primeira linha.",
         image: "/images/garantias.jpg",
@@ -116,7 +134,12 @@ const categorizedServices: CategorizedService[] = [
       },
       {
         title: "Gestão Estratégica de Patrimônio",
-        icon: <TrendingUp className="text-sunrad-yellow w-8 h-8" aria-hidden="true" />,
+        icon: (
+          <TrendingUp
+            className="text-sunrad-yellow w-8 h-8"
+            aria-hidden="true"
+          />
+        ),
         description:
           "Planejamento sucessório, trusts, veículos fiduciários e proteção patrimonial global.",
         image: "/images/patrimonio.jpg",
@@ -126,7 +149,6 @@ const categorizedServices: CategorizedService[] = [
     ],
   },
 ];
-
 
 export default function Servicos() {
   const [activeCardIndex, setActiveCardIndex] = useState<string | null>(null);
@@ -196,11 +218,15 @@ export default function Servicos() {
                           key={cardKey}
                           className={`transition-all duration-500 ${
                             isInSameRow ? "hidden" : ""
-                          } ${isActive ? "col-span-full flex justify-center" : ""}`}
+                          } ${
+                            isActive ? "col-span-full flex justify-center" : ""
+                          }`}
                         >
                           <Card
                             className={`transition-all duration-500 transform-gpu backdrop-blur-sm bg-white/5 border border-sunrad-sky shadow-md hover:shadow-xl hover:scale-[1.02] rounded-2xl ${
-                              isActive ? "flex-row max-w-4xl" : "flex-col h-full"
+                              isActive
+                                ? "flex-row max-w-4xl"
+                                : "flex-col h-full"
                             }`}
                           >
                             {isActive && (

@@ -17,11 +17,15 @@ export default function ContatoPage() {
     const errs: string[] = [];
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (!name || name.length < 2) errs.push("O nome deve ter ao menos 2 caracteres.");
+    if (!name || name.length < 2)
+      errs.push("O nome deve ter ao menos 2 caracteres.");
     if (!emailRegex.test(email)) errs.push("Email inválido.");
-    if (!message || message.length < 10) errs.push("A mensagem deve conter no mínimo 10 caracteres.");
-    if (message.length > 1000) errs.push("Mensagem muito longa (máximo de 1000 caracteres).");
-    if (file && file.size > 5 * 1024 * 1024) errs.push("Arquivo muito grande. Tamanho máximo: 5MB.");
+    if (!message || message.length < 10)
+      errs.push("A mensagem deve conter no mínimo 10 caracteres.");
+    if (message.length > 1000)
+      errs.push("Mensagem muito longa (máximo de 1000 caracteres).");
+    if (file && file.size > 5 * 1024 * 1024)
+      errs.push("Arquivo muito grande. Tamanho máximo: 5MB.");
 
     return errs;
   };
@@ -85,7 +89,8 @@ export default function ContatoPage() {
             Fale Conosco
           </h1>
           <p className="text-center text-blue-800 mb-8 max-w-md mx-auto">
-            Tem alguma dúvida ou deseja trabalhar conosco? Envie sua mensagem e responderemos em breve.
+            Tem alguma dúvida ou deseja trabalhar conosco? Envie sua mensagem e
+            responderemos em breve.
           </p>
 
           {errors.length > 0 && (
@@ -101,20 +106,35 @@ export default function ContatoPage() {
           )}
 
           {serverError && (
-            <p className="mb-4 text-red-600 font-medium" aria-live="assertive" role="alert">
+            <p
+              className="mb-4 text-red-600 font-medium"
+              aria-live="assertive"
+              role="alert"
+            >
               ❌ {serverError}
             </p>
           )}
 
           {success && (
-            <p className="mb-4 text-green-600 font-medium" aria-live="polite" role="status">
+            <p
+              className="mb-4 text-green-600 font-medium"
+              aria-live="polite"
+              role="status"
+            >
               ✅ Mensagem enviada com sucesso!
             </p>
           )}
 
-          <form onSubmit={handleSubmit} className="flex flex-col gap-6" noValidate>
+          <form
+            onSubmit={handleSubmit}
+            className="flex flex-col gap-6"
+            noValidate
+          >
             <div>
-              <label htmlFor="name" className="block text-blue-900 font-medium mb-1">
+              <label
+                htmlFor="name"
+                className="block text-blue-900 font-medium mb-1"
+              >
                 Nome completo
               </label>
               <input
@@ -130,7 +150,10 @@ export default function ContatoPage() {
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-blue-900 font-medium mb-1">
+              <label
+                htmlFor="email"
+                className="block text-blue-900 font-medium mb-1"
+              >
                 Email
               </label>
               <input
@@ -145,7 +168,10 @@ export default function ContatoPage() {
             </div>
 
             <div>
-              <label htmlFor="message" className="block text-blue-900 font-medium mb-1">
+              <label
+                htmlFor="message"
+                className="block text-blue-900 font-medium mb-1"
+              >
                 Mensagem
               </label>
               <textarea
@@ -161,7 +187,10 @@ export default function ContatoPage() {
             </div>
 
             <div>
-              <label htmlFor="file-upload" className="block text-blue-900 font-medium mb-2">
+              <label
+                htmlFor="file-upload"
+                className="block text-blue-900 font-medium mb-2"
+              >
                 Anexar arquivo (opcional)
               </label>
               <input
@@ -187,7 +216,7 @@ export default function ContatoPage() {
           </form>
         </div>
       </main>
-      <Footer/>
+      <Footer />
     </>
   );
 }

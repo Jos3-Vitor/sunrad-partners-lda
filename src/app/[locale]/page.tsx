@@ -4,6 +4,7 @@ import ValuesSection from "@/components/ValuesSection";
 import ServicesSection from "@/components/ServicesSection";
 import AboutSection from "@/components/AboutSection";
 import InstitutionalMessageSection from "@/components/InstitutionalMessageSection";
+import CookieConsent from "@/components/CookieConsent";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <InstitutionalMessageSection />
       <ValuesSection />
       <Footer />
+      <CookieConsent />
     </main>
   );
 }

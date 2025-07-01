@@ -287,6 +287,3 @@ export default function SobrePage() {
     </>
   );
 }
-
-  
-
